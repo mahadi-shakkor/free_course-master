@@ -41,7 +41,10 @@ class HomePage extends StatelessWidget {
                   Container(
                     height: 180,
                     width: 100,
+
                     decoration: BoxDecoration(
+
+
                       image: DecorationImage(
                         image: AssetImage("assets/images/woman_pic.jpg"),
                         fit: BoxFit.fill,

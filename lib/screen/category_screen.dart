@@ -4,9 +4,11 @@ import 'package:free_course/model/brand_list.dart';
 import '../api_service/api_service.dart';
 import '../model/category_model.dart';
 
-
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
+
+
+
 
   @override
   State<CategoryScreen> createState() => _CategoryScreenState();
@@ -26,10 +28,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Categories')),
+      appBar: AppBar(title: const Text('Categoriess')),
       body: Column(
         children: [
           SizedBox(
+
             height: 200,
             child: FutureBuilder<List<Category>>(
               future: _futureCategories,
@@ -52,24 +55,22 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
                   itemBuilder: (context, index) {
-
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Column(
                         children: [
                           Image.network(
                             categories[index].categoryImg,
-                            width: 50,
-                            height: 50,
-                            errorBuilder: (_, __, ___) => const Icon(Icons.broken_image),
+                            width: 100,
+                            height: 100,
+                            errorBuilder: (_, __, ___) =>
+                                const Icon(Icons.broken_image),
                           ),
-                          SizedBox(height: 5,),
+                          SizedBox(height: 5),
                           Text(categories[index].categoryName),
                         ],
                       ),
                     );
-
-
                   },
                 );
               },
@@ -96,19 +97,20 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, // 2 items per row
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 1, // Square cards
-                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2, // 2 items per row
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 1, // Square cards
+                        ),
                     itemCount: brands.length,
                     itemBuilder: (context, index) {
                       final brand = brands[index];
                       return Card(
                         elevation: 4,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +122,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                   brand.brandImg.toString(),
                                   fit: BoxFit.contain,
                                   errorBuilder: (_, __, ___) =>
-                                  const Icon(Icons.broken_image, size: 50),
+                                      const Icon(Icons.broken_image, size: 50),
                                 ),
                               ),
                             ),
